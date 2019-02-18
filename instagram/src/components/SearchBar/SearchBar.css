@@ -5,6 +5,7 @@ nav {
   height: 120px;
   align-items: center;
   padding: 0 1%;
+  margin-bottom: 3%;
 }
 
 .nav-item {
@@ -40,6 +41,7 @@ input {
 
 .camera-logo {
     padding-right: 15px;
+    width: 60px;
 }
 
 .logo-writing {
