@@ -1,5 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+
 .App {
     width: 1200px;
     margin: auto;
-    background-color: lightblue;
 }
