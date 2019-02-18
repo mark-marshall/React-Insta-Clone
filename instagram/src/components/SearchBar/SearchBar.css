@@ -8,11 +8,11 @@ nav {
 }
 
 .nav-item {
-  width: 100px;
+  width: 35px;
 }
 
 .small-icon {
-  width: 55px;
+  width: 45px;
 }
 
 input {
@@ -20,15 +20,14 @@ input {
   color: #DBDBDB;
   background-color: #FAFAF9;
   border-radius: 3px;
-  width: 325px;
-  height: 40px;
-  font-size: 18px;
+  width: 215px;
+  height: 30px;
+  font-size: 15px;
 }
 
 .search-bar-left {
     width: 280px;
     display: flex;
-    justify-content: space-around;
     align-items: center;
 }
 
@@ -39,10 +38,14 @@ input {
     align-items: center;
 }
 
+.camera-logo {
+    padding-right: 15px;
+}
+
 .logo-writing {
     width: 160px;
     border-left: 1px solid black;
-    padding-left: 25px;
+    padding-left: 15px;
 }
 
 ::placeholder {

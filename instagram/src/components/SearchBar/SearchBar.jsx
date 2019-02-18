@@ -8,7 +8,7 @@ export default function SearchBar() {
         <a>
           <img
             alt="logo"
-            className="nav-item small-icon"
+            className="nav-item small-icon camera-logo"
             src={require('./SearchBarAssets/logo.png')}
           />
         </a>
