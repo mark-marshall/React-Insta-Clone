@@ -50,6 +50,6 @@ nav {
     padding-left: 15px;
 }
 
-::placeholder {
+.input::placeholder {
     text-align: center;
   }
