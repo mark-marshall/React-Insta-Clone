@@ -17,9 +17,9 @@ nav {
 }
 
 .input {
-  border: 1px solid #DBDBDB;
-  color: #DBDBDB;
-  background-color: #FAFAF9;
+  border: 1px solid #dbdbdb;
+  color: #dbdbdb;
+  background-color: #fafaf9;
   border-radius: 3px;
   width: 215px;
   height: 30px;
@@ -27,29 +27,29 @@ nav {
 }
 
 .search-bar-left {
-    width: 280px;
-    display: flex;
-    align-items: center;
+  width: 280px;
+  display: flex;
+  align-items: center;
 }
 
 .search-bar-right {
-    width: 230px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  width: 230px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .camera-logo {
-    padding-right: 15px;
-    width: 60px;
+  padding-right: 15px;
+  width: 60px;
 }
 
 .logo-writing {
-    width: 160px;
-    border-left: 1px solid black;
-    padding-left: 15px;
+  width: 160px;
+  border-left: 1px solid black;
+  padding-left: 15px;
 }
 
 .input::placeholder {
-    text-align: center;
-  }
+  text-align: center;
+}

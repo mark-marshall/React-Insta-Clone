@@ -29,39 +29,39 @@
 }
 
 .under-image-container {
-    padding: 0 2%;
+  padding: 0 2%;
 }
 
 .post-reaction-image {
-    width: 35px;
+  width: 35px;
 }
 
 .likes {
-    line-height: 2.5;
-    font-weight: bold;
-    font-size: 14px;
-    padding-bottom: 0.5%;
+  line-height: 2.5;
+  font-weight: bold;
+  font-size: 14px;
+  padding-bottom: 0.5%;
 }
 
 .time-stamp {
-    line-height: 2.5;
-    color: grey;
-    font-size: 12px;
+  line-height: 2.5;
+  color: grey;
+  font-size: 12px;
 }
 
 .add-comment-divider {
-    height: 10px;
-    border-top: 1px solid #DBDBDB;
+  height: 10px;
+  border-top: 1px solid #dbdbdb;
 }
 
 .add-comment {
-    background-color: white;
-    border: white;
-    font-weight: bold;
-    font-size: 14px;
-    width: 100%;
-  }
+  background-color: white;
+  border: white;
+  font-weight: bold;
+  font-size: 14px;
+  width: 100%;
+}
 
-  .add-comment ::placeholder {
-    text-align: left;
-  }
+.add-comment ::placeholder {
+  text-align: left;
+}
