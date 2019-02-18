@@ -1,10 +1,11 @@
 import React from 'react';
+import './CommentSection.css';
 
 export default function CommentSection ({ comments }) {
     return (
-        <div>
+        <div className="published-comments">
            {
-               comments.map(comment => <div className="comments" key={comment.text}>{comment.username}{comment.text}</div>)
+               comments.map(comment => <div className="comments" key={comment.text}><span className="commenter">{comment.username}</span> {comment.text}</div>)
            }
         </div>
     )
