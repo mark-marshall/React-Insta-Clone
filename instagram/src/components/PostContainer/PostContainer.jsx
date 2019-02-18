@@ -2,6 +2,7 @@ import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.css';
 import PT from 'prop-types';
+import moment from 'moment';
 
 export default function PostContainer({
   thumbnail,
@@ -31,7 +32,7 @@ export default function PostContainer({
         />
         <div className="likes">{likes} likes</div>
         <CommentSection comments={comments} />
-        <span className="time-stamp">{timestamp}</span>
+        <span className="time-stamp">{moment([timestamp], "MMMM Do YYYY, h:mm:ss a").fromNow()}</span>
         <div className="add-comment-divider" />
         <input className="add-comment" placeholder="Add a comment..." />
       </div>
@@ -47,3 +48,5 @@ PostContainer.propTypes = {
   comments: PT.arrayOf(PT.object.isRequired).isRequired,
   timestamp: PT.string.isRequired
 };
+
+
