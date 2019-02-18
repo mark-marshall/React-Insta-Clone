@@ -1,6 +1,7 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.css';
+import PT from 'prop-types';
 
 export default function PostContainer({
   thumbnail,
@@ -37,3 +38,13 @@ export default function PostContainer({
     </div>
   );
 }
+
+PostContainer.propTypes = {
+    thumbnail: PT.string.isRequired,
+    image: PT.string.isRequired,
+    username: PT.string.isRequired,
+    likes: PT.number.isRequired,
+    comments: PT.arrayOf(PT.object.isRequired).isRequired,
+    timestamp: PT.string.isRequired,
+}
+

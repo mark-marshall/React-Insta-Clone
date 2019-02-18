@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PT from 'prop-types';
 import './App.css';
 import dummyData from './dummy-data';
 import SearchBar from './components/SearchBar/SearchBar';

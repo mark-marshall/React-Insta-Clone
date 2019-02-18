@@ -1,5 +1,6 @@
 import React from 'react';
 import './CommentSection.css';
+import PT from 'prop-types';
 
 export default function CommentSection ({ comments }) {
     return (
@@ -9,4 +10,8 @@ export default function CommentSection ({ comments }) {
            }
         </div>
     )
+}
+
+CommentSection.propTypes = {
+    comments: PT.arrayOf(PT.object.isRequired).isRequired,
 }
