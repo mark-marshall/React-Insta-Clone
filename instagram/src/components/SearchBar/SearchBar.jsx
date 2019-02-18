@@ -5,14 +5,14 @@ export default function SearchBar() {
   return (
     <nav>
       <div className="search-bar-left">
-        <a>
+        <a href="www.instagram.com">
           <img
             alt="logo"
             className="nav-item small-icon camera-logo"
             src={require('./SearchBarAssets/logo.png')}
           />
         </a>
-        <a>
+        <a href="www.instagram.com">
           <img
             alt="instagram writing"
             className="nav-item logo-writing"
@@ -24,7 +24,7 @@ export default function SearchBar() {
         <input className="input" placeholder="Search" />
       </div>
       <div className="search-bar-right">
-        <a>
+        <a href="www.instagram.com">
           <img
             alt="compass"
             id="search-input"
@@ -32,14 +32,14 @@ export default function SearchBar() {
             src={require('./SearchBarAssets/compass.png')}
           />
         </a>
-        <a>
+        <a href="www.instagram.com">
           <img
             alt="heart"
             className="nav-item small-icon"
             src={require('./SearchBarAssets/heart.png')}
           />
         </a>
-        <a>
+        <a href="www.instagram.com">
           <img
             alt="user"
             className="nav-item small-icon"

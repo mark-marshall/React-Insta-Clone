@@ -13,7 +13,7 @@ class App extends Component {
         </header>
         {dummyData.map(post => (
           <PostContainer
-            key={post.timestamp}
+            key={post.imageUrl}
             thumbnail={post.thumbnailUrl}
             username={post.username}
             image={post.imageUrl}
