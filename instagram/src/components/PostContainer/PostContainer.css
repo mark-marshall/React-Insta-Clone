@@ -35,6 +35,26 @@
     width: 35px;
 }
 
-.likes {
+.likes, .time-stamp {
     line-height: 2.5;
+    font-weight: bold;
+    font-size: 14px;
+    padding-bottom: 0.5%;
 }
+
+.add-comment-divider {
+    height: 10px;
+    border-top: 1px solid #DBDBDB;
+}
+
+.add-comment {
+    background-color: white;
+    border: white;
+    font-weight: bold;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .add-comment ::placeholder {
+    text-align: left;
+  }

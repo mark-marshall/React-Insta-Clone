@@ -27,6 +27,7 @@ export default function SearchBar() {
         <a>
           <img
             alt="compass"
+            id="search-input"
             className="nav-item small-icon"
             src={require('./SearchBarAssets/compass.png')}
           />
