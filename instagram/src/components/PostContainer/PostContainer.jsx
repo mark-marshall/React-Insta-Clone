@@ -32,7 +32,7 @@ export default function PostContainer({
         />
         <div className="likes">{likes} likes</div>
         <CommentSection comments={comments} />
-        <span className="time-stamp">{moment([timestamp], "MMMM Do YYYY, h:mm:ss a").fromNow()}</span>
+        <span className="time-stamp">{moment(timestamp, "MMMM Do YYYY, h:mm:ss a").fromNow()}</span>
         <div className="add-comment-divider" />
         <input className="add-comment" placeholder="Add a comment..." />
       </div>
