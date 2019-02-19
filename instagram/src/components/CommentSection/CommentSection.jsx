@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './CommentSection.css';
 import PT from 'prop-types';
+import moment from 'moment';
 
 class CommentSection extends Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class CommentSection extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className="comment-section">
         <div className="published-comments">
@@ -45,6 +47,10 @@ class CommentSection extends Component {
             </div>
           ))}
         </div>
+        <span className="time-stamp">
+            {moment(this.props.time, 'MMMM Do YYYY, h:mm:ss a').fromNow()}
+          </span>
+          <div className="add-comment-divider" />
         <form onSubmit={event => this.addNewComment(event)}>
           <input
             onChange={event => this.onInputChange(event)}

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.css';
 import PT from 'prop-types';
-import moment from 'moment';
 
 class PostContainer extends Component {
   constructor(props) {
@@ -43,11 +42,7 @@ class PostContainer extends Component {
             src={require('./PostContainerAssets/comment.png')}
           />
           <div className="likes">{this.state.likes} likes</div>
-          <CommentSection comments={this.props.comments} />
-          <span className="time-stamp">
-            {moment(this.props.timestamp, 'MMMM Do YYYY, h:mm:ss a').fromNow()}
-          </span>
-          <div className="add-comment-divider" />
+          <CommentSection comments={this.props.comments} time={this.props.timestamp}/>
         </div>
       </div>
     );
