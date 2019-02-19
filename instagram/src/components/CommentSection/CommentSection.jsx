@@ -7,30 +7,33 @@ class CommentSection extends Component {
     super(props);
     this.state = {
       comments: props.comments,
-      typed: '',
+      typed: ''
     };
   }
 
   onInputChange = event => {
-    console.log(this.state.typed);
     this.setState({
-      typed: event.target.value,
-    })
-  }
+      typed: event.target.value
+    });
+  };
 
   addNewComment = event => {
     event.preventDefault();
     this.setState(prevState => ({
-      comments: prevState.comments.concat({username: 'Mark', text: this.state.typed})
-    }))
+      comments: prevState.comments.concat({
+        username: 'Mark',
+        text: this.state.typed
+      })
+    }));
     this.clearInputs();
-  }
+  };
 
+  
   clearInputs = () => {
     this.setState({
       typed: '',
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -43,8 +46,13 @@ class CommentSection extends Component {
             </div>
           ))}
         </div>
-        <form onSubmit={(event) => this.addNewComment(event)}>
-          <input onChange={(event) => this.onInputChange(event)} value={this.state.typed} className="add-comment" placeholder="Add a comment..." />
+        <form onSubmit={event => this.addNewComment(event)}>
+          <input
+            onChange={event => this.onInputChange(event)}
+            value={this.state.typed}
+            className="add-comment"
+            placeholder="Add a comment..."
+          />
         </form>
       </div>
     );

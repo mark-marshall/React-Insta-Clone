@@ -9,6 +9,7 @@ class App extends Component {
     super();
     this.state = {
       post: [],
+      searchBox: '',
     }
   }
 
@@ -18,11 +19,40 @@ class App extends Component {
     })
   }
 
+currentSearch = event => {
+  event.preventDefault();
+    this.setState({
+      searchBox: event.target.value,
+    })
+    this.clearSearch();
+  }
+
+
+  filterSearches = event => {
+    event.preventDefault();
+    if (this.state.searchBox) {
+    this.setState(prevState => ({
+      post: prevState.post.filter(item => item.username === this.state.searchBox),
+    }))
+  } else {
+    this.setState({
+      post: dummyData,
+    })
+  }
+  }
+
+  clearSearch = () => {
+    this.setState({
+      currentSearch: '',
+      post: dummyData,
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <SearchBar />
+          <SearchBar searchBox={this.state.searchBox} currentSearch={this.currentSearch} filterSearches={this.filterSearches}/>
         </header>
         {this.state.post.map(post => (
           <PostContainer
