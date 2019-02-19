@@ -11,6 +11,14 @@ class CommentSection extends Component {
       comments: props.comments,
     }
   }
+  
+  addNewComment = (event, index) => {
+    const commentToAdd = event.target.value;
+    this.setState(prevState => ({
+      comments: prevState[index].comments.concat({text: commentToAdd, username: 'mark'}),
+    }))
+  }
+
   render (){
     return (
       <div className="comment-section">
