@@ -5,46 +5,47 @@ import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 
 class App extends Component {
-  constructor () {
+  constructor() {
     super();
     this.state = {
       post: [],
-      searchBox: '',
-    }
+      searchBox: ''
+    };
   }
 
   componentDidMount() {
     this.setState({
-      post: dummyData,
-    })
+      post: dummyData
+    });
   }
 
-currentSearch = event => {
-  event.preventDefault();
+  currentSearch = event => {
+    event.preventDefault();
     this.setState({
-      searchBox: event.target.value,
-    })
+      searchBox: event.target.value
+    });
     this.clearSearch();
-  }
-
+  };
 
   filterSearches = event => {
     event.preventDefault();
     if (this.state.searchBox) {
-    this.setState(prevState => ({
-      post: prevState.post.filter(item => item.username === this.state.searchBox),
-    }))
-  } else {
-    this.setState({
-      post: dummyData,
-    })
-  }
-  }
+      this.setState(prevState => ({
+        post: prevState.post.filter(
+          item => item.username === this.state.searchBox
+        )
+      }));
+    } else {
+      this.setState({
+        post: dummyData
+      });
+    }
+  };
 
   clearSearch = () => {
     this.setState({
       currentSearch: '',
-      post: dummyData,
+      post: dummyData
     });
   };
 
@@ -52,7 +53,11 @@ currentSearch = event => {
     return (
       <div className="App">
         <header className="App-header">
-          <SearchBar searchBox={this.state.searchBox} currentSearch={this.currentSearch} filterSearches={this.filterSearches}/>
+          <SearchBar
+            searchBox={this.state.searchBox}
+            currentSearch={this.currentSearch}
+            filterSearches={this.filterSearches}
+          />
         </header>
         {this.state.post.map(post => (
           <PostContainer

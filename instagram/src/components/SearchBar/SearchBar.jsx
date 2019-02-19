@@ -1,7 +1,11 @@
 import React from 'react';
 import './SearchBar.css';
 
-export default function SearchBar({ currentSearch, searchBox, filterSearches }) {
+export default function SearchBar({
+  currentSearch,
+  searchBox,
+  filterSearches
+}) {
   return (
     <nav>
       <div className="search-bar-left">
@@ -21,14 +25,14 @@ export default function SearchBar({ currentSearch, searchBox, filterSearches }) 
         </a>
       </div>
       <div className="search-bar-middle">
-      <form onSubmit={(event) => filterSearches(event)}>
+        <form onSubmit={event => filterSearches(event)}>
           <input
             onChange={event => currentSearch(event)}
             value={searchBox}
             className="input"
             placeholder="Search"
           />
-      </form>
+        </form>
       </div>
       <div className="search-bar-right">
         <a href="www.instagram.com">

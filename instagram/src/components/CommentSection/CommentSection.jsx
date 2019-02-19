@@ -28,10 +28,9 @@ class CommentSection extends Component {
     this.clearInputs();
   };
 
-  
   clearInputs = () => {
     this.setState({
-      typed: '',
+      typed: ''
     });
   };
 

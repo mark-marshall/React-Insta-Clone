@@ -4,49 +4,52 @@ import './PostContainer.css';
 import PT from 'prop-types';
 import moment from 'moment';
 
-
 class PostContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      likes: props.likes,
-    }
+      likes: props.likes
+    };
   }
 
   incrementLikes = () => {
     this.setState(prevState => ({
-      likes: prevState.likes +1,
-    }))
-  }
+      likes: prevState.likes + 1
+    }));
+  };
 
-  render (){
+  render() {
     return (
       <div className="post-container">
-      <div className="post-header-section">
-        <img className="thumbnail-image" alt="company logo" src={this.props.thumbnail} />
-        <div className="username">{this.props.username}</div>
+        <div className="post-header-section">
+          <img
+            className="thumbnail-image"
+            alt="company logo"
+            src={this.props.thumbnail}
+          />
+          <div className="username">{this.props.username}</div>
+        </div>
+        <img className="main-image" alt="post" src={this.props.image} />
+        <div className="under-image-container">
+          <img
+            className="post-reaction-image"
+            alt="heart"
+            src={require('./PostContainerAssets/heart.png')}
+            onClick={() => this.incrementLikes()}
+          />
+          <img
+            className="post-reaction-image"
+            alt="comment"
+            src={require('./PostContainerAssets/comment.png')}
+          />
+          <div className="likes">{this.state.likes} likes</div>
+          <CommentSection comments={this.props.comments} />
+          <span className="time-stamp">
+            {moment(this.props.timestamp, 'MMMM Do YYYY, h:mm:ss a').fromNow()}
+          </span>
+          <div className="add-comment-divider" />
+        </div>
       </div>
-      <img className="main-image" alt="post" src={this.props.image} />
-      <div className="under-image-container">
-        <img
-          className="post-reaction-image"
-          alt="heart"
-          src={require('./PostContainerAssets/heart.png')}
-          onClick={() => this.incrementLikes()}
-        />
-        <img
-          className="post-reaction-image"
-          alt="comment"
-          src={require('./PostContainerAssets/comment.png')}
-        />
-        <div className="likes">{this.state.likes} likes</div>
-        <CommentSection comments={this.props.comments} />
-        <span className="time-stamp">
-          {moment(this.props.timestamp, 'MMMM Do YYYY, h:mm:ss a').fromNow()}
-        </span>
-        <div className="add-comment-divider" />
-      </div>
-    </div>
     );
   }
 }
