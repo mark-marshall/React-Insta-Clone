@@ -9,9 +9,16 @@ class PostContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      testing: '',
+      likes: props.likes,
     }
   }
+
+  incrementLikes = () => {
+    this.setState(prevState => ({
+      likes: prevState.likes +1,
+    }))
+  }
+
   render (){
     return (
       <div className="post-container">
@@ -25,13 +32,14 @@ class PostContainer extends Component {
           className="post-reaction-image"
           alt="heart"
           src={require('./PostContainerAssets/heart.png')}
+          onClick={() => this.incrementLikes()}
         />
         <img
           className="post-reaction-image"
           alt="comment"
           src={require('./PostContainerAssets/comment.png')}
         />
-        <div className="likes">{this.props.likes} likes</div>
+        <div className="likes">{this.state.likes} likes</div>
         <CommentSection comments={this.props.comments} />
         <span className="time-stamp">
           {moment(this.props.timestamp, 'MMMM Do YYYY, h:mm:ss a').fromNow()}
