@@ -1,43 +1,58 @@
 import React, { Component } from 'react';
 import './CommentSection.css';
-import './AddComment';
 import PT from 'prop-types';
-import AddComment from './AddComment';
 
 class CommentSection extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       comments: props.comments,
-    }
-  }
-  
-  addNewComment = (event, index) => {
-    const commentToAdd = event.target.value;
-    this.setState(prevState => ({
-      comments: prevState[index].comments.concat({text: commentToAdd, username: 'mark'}),
-    }))
+      typed: '',
+    };
   }
 
-  render (){
+  onInputChange = event => {
+    console.log(this.state.typed);
+    this.setState({
+      typed: event.target.value,
+    })
+  }
+
+  addNewComment = event => {
+    event.preventDefault();
+    this.setState(prevState => ({
+      comments: prevState.comments.concat({username: 'Mark', text: this.state.typed})
+    }))
+    this.clearInputs();
+  }
+
+  clearInputs = () => {
+    this.setState({
+      typed: '',
+    })
+  }
+
+  render() {
     return (
       <div className="comment-section">
-      <div className="published-comments">
-        {this.state.comments.map(comment => (
-          <div className="comments" key={comment.text}>
-            <span className="commenter">{comment.username}</span> {comment.text}
-          </div>
-        ))}
+        <div className="published-comments">
+          {this.state.comments.map(comment => (
+            <div className="comments" key={comment.text}>
+              <span className="commenter">{comment.username}</span>{' '}
+              {comment.text}
+            </div>
+          ))}
+        </div>
+        <form onSubmit={(event) => this.addNewComment(event)}>
+          <input onChange={(event) => this.onInputChange(event)} value={this.state.typed} className="add-comment" placeholder="Add a comment..." />
+        </form>
       </div>
-      <AddComment />
-    </div>
-    )
+    );
   }
 }
 
 CommentSection.propTypes = {
   comments: PT.arrayOf(PT.object.isRequired).isRequired
 };
-
 
 export default CommentSection;

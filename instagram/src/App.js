@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.post);
     return (
       <div className="App">
         <header className="App-header">
