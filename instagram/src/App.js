@@ -5,13 +5,27 @@ import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 
 class App extends Component {
+  constructor () {
+    super();
+    this.state = {
+      post: [],
+    }
+  }
+
+  componentDidMount() {
+    this.setState({
+      post: dummyData,
+    })
+  }
+
   render() {
+    console.log(this.state.post);
     return (
       <div className="App">
         <header className="App-header">
           <SearchBar />
         </header>
-        {dummyData.map(post => (
+        {this.state.post.map(post => (
           <PostContainer
             key={post.imageUrl}
             thumbnail={post.thumbnailUrl}
