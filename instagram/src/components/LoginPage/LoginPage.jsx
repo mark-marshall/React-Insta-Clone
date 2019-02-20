@@ -16,8 +16,8 @@ class LoginPage extends React.Component {
   login = () => {
     localStorage.setItem('username', JSON.stringify(this.state.username));
     this.setState({
-        loggedIn: !this.state.loggedIn,
-    })
+      loggedIn: !this.state.loggedIn
+    });
   };
 
   render() {
