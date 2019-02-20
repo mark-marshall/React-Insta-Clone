@@ -1,11 +1,15 @@
 import React from 'react';
 
-export function authenticate(App) {
+export function authenticate(App, LoginPage) {
     return class Authenticate extends React.Component {
+        state = {
+            ans: true,
+        }
         render () {
-            return (
-             <App {...this.props}/>
-            )
+            if (!localStorage.getItem('username')){
+                return <LoginPage />
+            }
+            return <App {...this.props}/>
         }
     }
 }
