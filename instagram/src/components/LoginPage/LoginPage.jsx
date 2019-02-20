@@ -15,6 +15,9 @@ class LoginPage extends React.Component {
 
   login = () => {
     localStorage.setItem('username', JSON.stringify(this.state.username));
+    this.setState({
+        loggedIn: !this.state.loggedIn,
+    })
   };
 
   render() {
@@ -27,11 +30,11 @@ class LoginPage extends React.Component {
             src={require('./LoginPageAssets/InstaPhones.png')}
           />
           <div className="signup-section">
-           <img 
-           alt="instagram"
-           className="insta-logo"
-           src={require('./LoginPageAssets/word-logo.png')}
-           />
+            <img
+              alt="instagram"
+              className="insta-logo"
+              src={require('./LoginPageAssets/word-logo.png')}
+            />
             <form className="signup-form">
               <input
                 onChange={event => this.userType(event)}
@@ -39,11 +42,10 @@ class LoginPage extends React.Component {
                 placeholder="Username"
                 className="signup-input"
               />
-              <input 
-              placeholder="Password" 
-              className="signup-input"
-              />
-              <button onClick={() => this.login()} className="log-in-button">Log In</button>
+              <input placeholder="Password" className="signup-input" />
+              <button onClick={() => this.login()} className="log-in-button">
+                Log In
+              </button>
             </form>
           </div>
         </div>

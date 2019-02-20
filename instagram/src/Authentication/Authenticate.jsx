@@ -2,9 +2,15 @@ import React from 'react';
 
 export function authenticate(App, LoginPage) {
     return class Authenticate extends React.Component {
-        state = {
-            ans: true,
+
+        componentDidMount() {
+            console.log('component mounted');
         }
+
+        componentDidUpdate() {
+            console.log('component updated');
+        }
+
         render () {
             if (!localStorage.getItem('username')){
                 return <LoginPage {...this.props}/>

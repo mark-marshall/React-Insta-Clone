@@ -50,4 +50,9 @@
   font-size: 15px;
   border: 1px solid #3898f0;
   margin-top: 10px;
+  cursor: pointer;
+}
+
+.log-in-button:hover {
+    background-color: dodgerblue;
 }
