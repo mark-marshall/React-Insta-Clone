@@ -37,7 +37,6 @@ class CommentSection extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className="comment-section">
         <div className="published-comments">
