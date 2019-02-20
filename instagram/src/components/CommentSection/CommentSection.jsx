@@ -8,7 +8,8 @@ class CommentSection extends Component {
     super(props);
     this.state = {
       comments: props.comments,
-      typed: ''
+      typed: '',
+      trutthy: true,
     };
   }
 
