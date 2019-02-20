@@ -23,7 +23,7 @@ class CommentSection extends Component {
     event.preventDefault();
     this.setState(prevState => ({
       comments: prevState.comments.concat({
-        username: 'Mark',
+        username: localStorage.getItem('username').replace(/['"]+/g, ''),
         text: this.state.typed
       })
     }));
