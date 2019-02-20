@@ -7,7 +7,7 @@ export function authenticate(App, LoginPage) {
         }
         render () {
             if (!localStorage.getItem('username')){
-                return <LoginPage />
+                return <LoginPage {...this.props}/>
             }
             return <App {...this.props}/>
         }

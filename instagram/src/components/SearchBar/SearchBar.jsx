@@ -57,6 +57,7 @@ export default function SearchBar({
             src={require('./SearchBarAssets/user.png')}
           />
         </a>
+        <button onClick={() => localStorage.clear()}>Log Out</button>
       </div>
     </nav>
   );

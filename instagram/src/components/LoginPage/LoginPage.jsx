@@ -19,17 +19,35 @@ class LoginPage extends React.Component {
 
   render() {
     return (
-      <>
-        <form>
-          <input
-            onChange={event => this.userType(event)}
-            value={this.state.username}
-            placeholder="Username"
+      <div className="login-area-container">
+        <div className="login-container">
+          <img
+            alt="iPhones"
+            className="hero-splash"
+            src={require('./LoginPageAssets/InstaPhones.png')}
           />
-          <input placeholder="Password" />
-          <button onClick={() => this.login()}>Log In</button>
-        </form>
-      </>
+          <div className="signup-section">
+           <img 
+           alt="instagram"
+           className="insta-logo"
+           src={require('./LoginPageAssets/word-logo.png')}
+           />
+            <form className="signup-form">
+              <input
+                onChange={event => this.userType(event)}
+                value={this.state.username}
+                placeholder="Username"
+                className="signup-input"
+              />
+              <input 
+              placeholder="Password" 
+              className="signup-input"
+              />
+              <button onClick={() => this.login()} className="log-in-button">Log In</button>
+            </form>
+          </div>
+        </div>
+      </div>
     );
   }
 }
