@@ -5,13 +5,61 @@ import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      post: [],
+      searchBox: ''
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      post: dummyData
+    });
+  }
+
+  currentSearch = event => {
+    event.preventDefault();
+    this.setState({
+      searchBox: event.target.value
+    });
+    this.clearSearch();
+  };
+
+  filterSearches = event => {
+    event.preventDefault();
+    if (this.state.searchBox) {
+      this.setState(prevState => ({
+        post: prevState.post.filter(
+          item => item.username === this.state.searchBox
+        )
+      }));
+    } else {
+      this.setState({
+        post: dummyData
+      });
+    }
+  };
+
+  clearSearch = () => {
+    this.setState({
+      currentSearch: '',
+      post: dummyData
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <SearchBar />
+          <SearchBar
+            searchBox={this.state.searchBox}
+            currentSearch={this.currentSearch}
+            filterSearches={this.filterSearches}
+          />
         </header>
-        {dummyData.map(post => (
+        {this.state.post.map(post => (
           <PostContainer
             key={post.imageUrl}
             thumbnail={post.thumbnailUrl}
