@@ -1,65 +1,125 @@
 import React from 'react';
-import './SearchBar.css';
 import LogOut from './LogOut';
+import styled from 'styled-components';
 
+// Style-Component-Controls
+const searchBarStyles = {
+  displays: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  colors: {
+    primary: '#dbdbdb',
+    secondary: '#fafaf9',
+  }
+}
+
+// Styled-Components
+const NavBar = styled.nav`
+  width: 100%;
+  display: ${searchBarStyles.displays.display};
+  justify-content: space-between;
+  height: 120px;
+  align-items: ${searchBarStyles.displays.alignItems};
+  padding: 0 1%;
+  margin-bottom: 3%;
+`;
+
+const SearchBarLeft = styled.div`
+  width: 280px;
+  display: ${searchBarStyles.displays.display};
+  align-items: ${searchBarStyles.displays.alignItems};
+`;
+
+const SearchBarRight = styled.div`
+  width: 230px;
+  display: ${searchBarStyles.displays.display};
+  justify-content: ${searchBarStyles.displays.justifyContent};
+  align-items: ${searchBarStyles.displays.alignItems};
+`;
+
+const NavIconsSmall = styled.img`
+  width: 45px;
+`;
+
+const CameraLogo = styled.img`
+  padding-right: 15px;
+  width: 60px;
+`;
+
+const InstagramHeroLogo = styled.img`
+  width: 160px;
+  border-left: 1px solid black;
+  padding-left: 15px;
+`;
+
+const SearchBox = styled.input`
+  border: 1px solid ${searchBarStyles.colors.primary};
+  color: ${searchBarStyles.colors.primary};
+  background-color: ${searchBarStyles.colors.secondary};
+  border-radius: 3px;
+  width: 215px;
+  height: 30px;
+  font-size: 15px;
+
+  ::placeholder {
+    text-align: ${searchBarStyles.displays.alignItems};
+  }
+`;
+
+// SearchBar function
 export default function SearchBar({
   currentSearch,
   searchBox,
   filterSearches
 }) {
   return (
-    <nav>
-      <div className="search-bar-left">
+    <NavBar>
+      <SearchBarLeft className="search-bar-left">
         <a href="www.instagram.com">
-          <img
+          <CameraLogo
             alt="logo"
-            className="nav-item small-icon camera-logo"
             src={require('./SearchBarAssets/logo.png')}
           />
         </a>
         <a href="www.instagram.com">
-          <img
+          <InstagramHeroLogo
             alt="instagram writing"
-            className="nav-item logo-writing"
             src={require('./SearchBarAssets/word-logo.png')}
           />
         </a>
-      </div>
+      </SearchBarLeft>
       <div className="search-bar-middle">
         <form onSubmit={event => filterSearches(event)}>
-          <input
+          <SearchBox
             onChange={event => currentSearch(event)}
             value={searchBox}
-            className="input"
             placeholder="Search"
           />
         </form>
       </div>
-      <div className="search-bar-right">
+      <SearchBarRight className="search-bar-right">
         <a href="www.instagram.com">
-          <img
+          <NavIconsSmall
             alt="compass"
-            id="search-input"
-            className="nav-item small-icon"
             src={require('./SearchBarAssets/compass.png')}
           />
         </a>
         <a href="www.instagram.com">
-          <img
+          <NavIconsSmall
             alt="heart"
-            className="nav-item small-icon"
             src={require('./SearchBarAssets/heart.png')}
           />
         </a>
         <a href="www.instagram.com">
-          <img
+          <NavIconsSmall
             alt="user"
-            className="nav-item small-icon"
             src={require('./SearchBarAssets/user.png')}
           />
         </a>
         <LogOut />
-      </div>
-    </nav>
+      </SearchBarRight>
+    </NavBar>
   );
 }
