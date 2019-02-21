@@ -2,10 +2,10 @@ import React from 'react';
 
 export function authenticate(App, LoginPage) {
   return class Authenticate extends React.Component {
-      state = {
-        username: '',
-        authed: false,
-      }
+    state = {
+      username: '',
+      authed: false
+    };
 
     userType = event => {
       this.setState({
@@ -17,8 +17,8 @@ export function authenticate(App, LoginPage) {
       localStorage.setItem('username', JSON.stringify(this.state.username));
       localStorage.setItem('authed', 'true');
       this.setState({
-        authed: true,
-      })
+        authed: true
+      });
     };
 
     componentDidMount() {
@@ -26,17 +26,16 @@ export function authenticate(App, LoginPage) {
       this.setState({ authed });
     }
 
-    componentDidUpdate() {
-      console.log('updated');
-      const authed = !!localStorage.getItem('authed');
-      if (this.state.authed !== authed) {
-        this.setState({ authed });
-      }
-    }
-
     render() {
       if (this.state.authed === false) {
-        return <LoginPage {...this.props} login={this.login} userType={this.userType} username={this.state.username} />;
+        return (
+          <LoginPage
+            {...this.props}
+            login={this.login}
+            userType={this.userType}
+            username={this.state.username}
+          />
+        );
       }
       return <App {...this.props} />;
     }
