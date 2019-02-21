@@ -1,5 +1,6 @@
 import React from 'react';
 import './SearchBar.css';
+import LogOut from './LogOut';
 
 export default function SearchBar({
   currentSearch,
@@ -57,6 +58,7 @@ export default function SearchBar({
             src={require('./SearchBarAssets/user.png')}
           />
         </a>
+        <LogOut />
       </div>
     </nav>
   );

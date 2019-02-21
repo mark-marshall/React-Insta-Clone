@@ -1,0 +1,58 @@
+.login-area-container {
+  width: 850px;
+  margin: auto;
+  margin-top: 140px;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.hero-splash {
+  width: 45%;
+}
+
+.signup-section {
+  border: 1px solid lightgray;
+  background-color: #fafaf9;
+  height: 400px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.insta-logo {
+  width: 200px;
+  margin: auto;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-input, .log-in-button {
+  width: 72%;
+  height: 30px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+}
+
+.log-in-button {
+  background-color: #3898f0;
+  color: white;
+  font-size: 15px;
+  border: 1px solid #3898f0;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.log-in-button:hover {
+    background-color: dodgerblue;
+}

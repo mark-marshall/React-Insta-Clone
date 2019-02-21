@@ -8,7 +8,8 @@ class CommentSection extends Component {
     super(props);
     this.state = {
       comments: props.comments,
-      typed: ''
+      typed: '',
+      trutthy: true,
     };
   }
 
@@ -22,7 +23,7 @@ class CommentSection extends Component {
     event.preventDefault();
     this.setState(prevState => ({
       comments: prevState.comments.concat({
-        username: 'Mark',
+        username: localStorage.getItem('username').replace(/['"]+/g, ''),
         text: this.state.typed
       })
     }));
@@ -36,7 +37,6 @@ class CommentSection extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className="comment-section">
         <div className="published-comments">
