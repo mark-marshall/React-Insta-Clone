@@ -1,6 +1,7 @@
 import React from 'react';
-import LogOut from './LogOut';
 import styled from 'styled-components';
+import PT from 'prop-types';
+import LogOut from './LogOut';
 
 // Style-Component-Controls
 const searchBarStyles = {
@@ -11,8 +12,8 @@ const searchBarStyles = {
   colors: {
     primary: '#dbdbdb',
     secondary: '#fafaf9',
-  }
-}
+  },
+};
 
 // Styled-Components
 const NavBar = styled.nav`
@@ -67,10 +68,10 @@ const SearchBox = styled.input`
 export default function SearchBar({
   currentSearch,
   searchBox,
-  filterSearches
+  filterSearches,
 }) {
   return (
-    <NavBar type='space-maker'>
+    <NavBar type="space-maker">
       <SearchBarLeft className="search-bar-left">
         <a href="www.instagram.com">
           <Logos
@@ -122,3 +123,9 @@ export default function SearchBar({
     </NavBar>
   );
 }
+
+SearchBar.propTypes = {
+  currentSearch: PT.func.isRequired,
+  searchBox: PT.string.isRequired,
+  filterSearches: PT.func.isRequired,
+};

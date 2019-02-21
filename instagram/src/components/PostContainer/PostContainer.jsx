@@ -55,7 +55,7 @@ PostContainer.propTypes = {
   username: PT.string.isRequired,
   likes: PT.number.isRequired,
   comments: PT.arrayOf(PT.object.isRequired).isRequired,
-  timestamp: PT.string.isRequired
+  timestamp: PT.string.isRequired,
 };
 
 export default PostContainer;
