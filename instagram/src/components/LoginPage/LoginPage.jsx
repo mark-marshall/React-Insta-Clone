@@ -1,4 +1,5 @@
 import React from 'react';
+import PT from 'prop-types';
 import './LoginPage.css';
 
 export default function LoginPage({ login, userType, username }) {
@@ -33,3 +34,9 @@ export default function LoginPage({ login, userType, username }) {
     </div>
   );
 }
+
+LoginPage.propTypes = {
+  login: PT.func.isRequired,
+  userType: PT.func.isRequired,
+  username: PT.string.isRequired,
+};
