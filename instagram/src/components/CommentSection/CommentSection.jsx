@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './CommentSection.css';
 import styled from 'styled-components';
 import PT from 'prop-types';
 import moment from 'moment';

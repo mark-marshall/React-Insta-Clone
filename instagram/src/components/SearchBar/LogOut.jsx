@@ -19,9 +19,6 @@ height: 30px;
 
 // LogOut class
 class LogOut extends React.Component {
-  state = {
-    test: false
-  };
 
   clearStorage = () => {
     localStorage.clear();
