@@ -6,7 +6,6 @@ import styled from 'styled-components';
 const searchBarStyles = {
   displays: {
     display: 'flex',
-    justifyContent: 'space-around',
     alignItems: 'center',
   },
   colors: {
@@ -19,7 +18,7 @@ const searchBarStyles = {
 const NavBar = styled.nav`
   width: 100%;
   display: ${searchBarStyles.displays.display};
-  justify-content: space-between;
+  justify-content: ${pr => pr.type === 'space-maker' ? 'space-between' : 'space-around'};
   height: 120px;
   align-items: ${searchBarStyles.displays.alignItems};
   padding: 0 1%;
@@ -35,17 +34,13 @@ const SearchBarLeft = styled.div`
 const SearchBarRight = styled.div`
   width: 230px;
   display: ${searchBarStyles.displays.display};
-  justify-content: ${searchBarStyles.displays.justifyContent};
+  justify-content: ${pr => pr.type === 'space-maker' ? 'space-between' : 'space-around'};
   align-items: ${searchBarStyles.displays.alignItems};
 `;
 
-const NavIconsSmall = styled.img`
-  width: 45px;
-`;
-
-const CameraLogo = styled.img`
-  padding-right: 15px;
-  width: 60px;
+const Logos = styled.img`
+  width: ${pr => pr.size === 'standard' ? '45px' : '60px'}
+  padding-right: ${pr => pr.pos === 'prime' ? '15px' : '0px'}
 `;
 
 const InstagramHeroLogo = styled.img`
@@ -75,12 +70,13 @@ export default function SearchBar({
   filterSearches
 }) {
   return (
-    <NavBar>
+    <NavBar type='space-maker'>
       <SearchBarLeft className="search-bar-left">
         <a href="www.instagram.com">
-          <CameraLogo
+          <Logos
             alt="logo"
             src={require('./SearchBarAssets/logo.png')}
+            pos="prime"
           />
         </a>
         <a href="www.instagram.com">
@@ -101,21 +97,24 @@ export default function SearchBar({
       </div>
       <SearchBarRight className="search-bar-right">
         <a href="www.instagram.com">
-          <NavIconsSmall
+          <Logos
             alt="compass"
             src={require('./SearchBarAssets/compass.png')}
+            size="standard"
           />
         </a>
         <a href="www.instagram.com">
-          <NavIconsSmall
+          <Logos
             alt="heart"
             src={require('./SearchBarAssets/heart.png')}
+            size="standard"
           />
         </a>
         <a href="www.instagram.com">
-          <NavIconsSmall
+          <Logos
             alt="user"
             src={require('./SearchBarAssets/user.png')}
+            size="standard"
           />
         </a>
         <LogOut />
