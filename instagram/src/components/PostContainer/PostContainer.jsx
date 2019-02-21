@@ -7,25 +7,26 @@ import PT from 'prop-types';
 const postStyler = {
   displays: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   colors: {
     primary: '#dbdbdb',
     secondary: '#fafaf9',
-    tertiary: 'white'
+    tertiary: 'white',
+    quad: 'grey',
   },
   fonts: {
     primary: '14px',
-    secondary: '12px'
+    secondary: '12px',
   },
   lineHeights: {
-    primary: '2.5'
+    primary: '2.5',
   },
   padding: {
-    standard: '2%'
+    standard: '2%',
   },
   border: {
-    primary: '1px solid'
+    primary: '1px solid',
   }
 };
 
@@ -74,7 +75,7 @@ const PostDetailer = styled.div`
 
     .time-stamp {
       line-height: ${postStyler.lineHeights.primary};
-      color: ${postStyler.colors.primary};
+      color: ${postStyler.colors.quad};
       font-size: ${postStyler.fonts.secondary};
     }
 
@@ -97,7 +98,7 @@ const PostDetailer = styled.div`
   }
 `;
 
-// PostContainer clas
+// PostContainer clas`
 class PostContainer extends Component {
   constructor(props) {
     super(props);
