@@ -1,8 +1,103 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import CommentSection from '../CommentSection/CommentSection';
-import './PostContainer.css';
 import PT from 'prop-types';
 
+// Style-Component-Controls
+const postStyler = {
+  displays: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+  colors: {
+    primary: '#dbdbdb',
+    secondary: '#fafaf9',
+    tertiary: 'white'
+  },
+  fonts: {
+    primary: '14px',
+    secondary: '12px'
+  },
+  lineHeights: {
+    primary: '2.5'
+  },
+  padding: {
+    standard: '2%'
+  },
+  border: {
+    primary: '1px solid'
+  }
+};
+
+// Styled-Components
+const PostDetailer = styled.div`
+  width: 560px;
+  margin: auto;
+  padding: 0 0.2%;
+  padding-bottom: 2.5%;
+
+  .post-header-section {
+    height: 60px;
+    display: ${postStyler.displays.display};
+    align-items: center;
+    padding: 0 ${postStyler.padding.standard};
+
+    .thumbnail-image {
+      width: 30px;
+      border-radius: 50%;
+    }
+
+    .username {
+      padding-left: ${postStyler.padding.standard};
+      font-size: ${postStyler.fonts.primary};
+      font-weight: bold;
+    }
+  }
+
+  .main-image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .under-image-container {
+    padding: 0 ${postStyler.padding.standard};
+    .post-reaction-image {
+      width: 35px;
+    }
+
+    .likes {
+      line-height: ${postStyler.lineHeights.primary};
+      font-weight: bold;
+      font-size: ${postStyler.fonts.primary};
+      padding-bottom: 0.5%;
+    }
+
+    .time-stamp {
+      line-height: ${postStyler.lineHeights.primary};
+      color: ${postStyler.colors.primary};
+      font-size: ${postStyler.fonts.secondary};
+    }
+
+    .add-comment-divider {
+      height: 10px;
+      border-top: ${postStyler.border.primary} ${postStyler.colors.primary};
+    }
+
+    .add-comment {
+      background-color: ${postStyler.colors.tertiary};
+      border: ${postStyler.colors.tertiary};
+      font-weight: bold;
+      font-size: ${postStyler.fonts.primary};
+      width: 100%;
+    }
+
+    .add-comment ::placeholder {
+      text-align: left;
+    }
+  }
+`;
+
+// PostContainer clas
 class PostContainer extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +114,7 @@ class PostContainer extends Component {
 
   render() {
     return (
-      <div className="post-container">
+      <PostDetailer className="post-container">
         <div className="post-header-section">
           <img
             className="thumbnail-image"
@@ -42,9 +137,12 @@ class PostContainer extends Component {
             src={require('./PostContainerAssets/comment.png')}
           />
           <div className="likes">{this.state.likes} likes</div>
-          <CommentSection comments={this.props.comments} time={this.props.timestamp}/>
+          <CommentSection
+            comments={this.props.comments}
+            time={this.props.timestamp}
+          />
         </div>
-      </div>
+      </PostDetailer>
     );
   }
 }
@@ -55,7 +153,7 @@ PostContainer.propTypes = {
   username: PT.string.isRequired,
   likes: PT.number.isRequired,
   comments: PT.arrayOf(PT.object.isRequired).isRequired,
-  timestamp: PT.string.isRequired,
+  timestamp: PT.string.isRequired
 };
 
 export default PostContainer;
