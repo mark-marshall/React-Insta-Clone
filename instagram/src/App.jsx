@@ -9,19 +9,19 @@ class App extends Component {
     postData: [],
     enteredSearch: '',
     commentInput: '',
-    selectedPost: 0
+    selectedPost: 0,
   };
 
   componentDidMount() {
     this.setState({
-      postData: dummyData
+      postData: dummyData,
     });
   }
 
   onCommentChange = (e, id) => {
     this.setState({
       selectedPost: id,
-      commentInput: e.target.value
+      commentInput: e.target.value,
     });
   };
 
@@ -31,7 +31,7 @@ class App extends Component {
       postData: prevState.postData.map(post => {
         if (this.state.postData.indexOf(post) === id) {
           post.comments = post.comments.concat({
-            username: 'Jonathon',
+            username: 'jonathon',
             text: this.state.commentInput
           });
           return post;
@@ -46,7 +46,7 @@ class App extends Component {
 
   onSearchChange = e => {
     this.setState({
-      enteredSearch: e.target.value
+      enteredSearch: e.target.value,
     });
   };
 
@@ -60,16 +60,29 @@ class App extends Component {
       }));
     } else {
       this.setState({
-        postData: dummyData
+        postData: dummyData,
       });
     }
   };
 
   clearInputs = () => {
     this.setState({
-      commentInput: ''
+      commentInput: '',
     });
   };
+
+  incrementLikes = (id) => {
+    this.setState(prevState => ({
+      postData: prevState.postData.map(post => {
+        if (this.state.postData.indexOf(post) === id) {
+          post.likes = post.likes +1;
+          return post;
+        } else {
+          return post;
+        }
+      })
+    }))
+  }
 
   render() {
     return (
@@ -88,6 +101,7 @@ class App extends Component {
             onCommentChange={this.onCommentChange}
             addNewComment={this.addNewComment}
             selectedPost={this.state.selectedPost}
+            incrementLikes={this.incrementLikes}
           />
         ))}
       </div>

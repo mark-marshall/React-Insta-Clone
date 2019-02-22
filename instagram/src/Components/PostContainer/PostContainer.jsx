@@ -10,12 +10,19 @@ export default function PostContainer({
   addNewComment,
   id,
   selectedPost,
+  incrementLikes,
 }) {
   return (
     <div>
       <img src={postData.thumbnailUrl} alt="thumbnail" />
       <h1>{postData.username}</h1>
       <img src={postData.imageUrl} alt="capture" />
+      <p>
+        <span onClick={() => incrementLikes(id)} role="img" aria-label="heart" id={id}>
+          ❤️
+        </span>
+      </p>
+      <p>{`${postData.likes} likes`}</p>
       <p>{moment(postData.timestamp, 'MMMM Do YYYY, h:mm:ss a').fromNow()}</p>
       <CommentSection
         comments={postData.comments}
@@ -36,4 +43,5 @@ PostContainer.propTypes = {
   addNewComment: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   selectedPost: PropTypes.number.isRequired,
+  incrementLikes: PropTypes.func.isRequired,
 };
