@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
-import './CommentSection.css';
+import styled from 'styled-components';
 import PT from 'prop-types';
 import moment from 'moment';
+
+// Styled-Components
+const PublishedComments = styled.div`
+  line-height: 1.5;
+  font-size: 14px;
+  padding-bottom: 0.5%;
+`;
+
+const Commenter = styled.div`
+  font-weight: bold;
+`;
 
 class CommentSection extends Component {
   constructor(props) {
@@ -9,7 +20,7 @@ class CommentSection extends Component {
     this.state = {
       comments: props.comments,
       typed: '',
-      trutthy: true,
+      trutthy: true
     };
   }
 
@@ -39,18 +50,20 @@ class CommentSection extends Component {
   render() {
     return (
       <div className="comment-section">
-        <div className="published-comments">
+        <PublishedComments>
           {this.state.comments.map(comment => (
             <div className="comments" key={comment.text}>
-              <span className="commenter">{comment.username}</span>{' '}
-              {comment.text}
+              <div>
+                <Commenter>{comment.username}</Commenter>
+                {comment.text}
+              </div>
             </div>
           ))}
-        </div>
+        </PublishedComments>
         <span className="time-stamp">
-            {moment(this.props.time, 'MMMM Do YYYY, h:mm:ss a').fromNow()}
-          </span>
-          <div className="add-comment-divider" />
+          {moment(this.props.time, 'MMMM Do YYYY, h:mm:ss a').fromNow()}
+        </span>
+        <div className="add-comment-divider" />
         <form onSubmit={event => this.addNewComment(event)}>
           <input
             onChange={event => this.onInputChange(event)}

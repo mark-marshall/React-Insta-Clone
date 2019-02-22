@@ -6,9 +6,7 @@ import LoginPage from './components/LoginPage/LoginPage';
 
 class App extends Component {
   render() {
-    return (
-        <PostsPage />
-    );
+    return <PostsPage />;
   }
 }
 
