@@ -8,24 +8,66 @@ class App extends Component {
   state = {
     postData: [],
     enteredSearch: '',
-    selectedPost: {},
+    commentInput: '',
+    selectedPost: 0
+  };
+
+  componentDidMount() {
+    this.setState({
+      postData: dummyData
+    });
   }
 
-  componentDidMount(){
+  onCommentChange = (e, id) => {
     this.setState({
-      postData: dummyData,
-    })
-  }
+      selectedPost: id,
+      commentInput: e.target.value
+    });
+  };
+
+  addNewComment = (e, id) => {
+    e.preventDefault();
+    this.setState(prevState => ({
+      postData: prevState.postData.map(post => {
+        if (this.state.postData.indexOf(post) === id) {
+          post.comments = post.comments.concat({
+            username: 'Jonathon',
+            text: this.state.commentInput,
+          });
+          return post;
+        } else {
+          return post;
+        }
+      })
+    }));
+
+    this.clearInputs();
+  };
+
+  clearInputs = () => {
+    this.setState({
+      commentInput: ''
+    });
+  };
 
   render() {
     return (
       <div>
-      <SearchBarContainer />
-      {
-      this.state.postData.map(post => <PostContainer key={post.imageUrl} postData={post} />)
-      }
+        <SearchBarContainer />
+        {this.state.postData.map(post => (
+          <PostContainer
+            id={dummyData.indexOf(post)}
+            key={post.imageUrl}
+            postData={post}
+            commentInput={this.state.commentInput}
+            onCommentChange={this.onCommentChange}
+            addNewComment={this.addNewComment}
+            selectedPost={this.state.selectedPost}
+          />
+        ))}
       </div>
-    )}
+    );
+  }
 }
 
 export default App;
