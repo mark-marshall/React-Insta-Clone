@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import './App.css';
 import dummyData from './dummy-data';
 import PostContainer from './Components/PostContainer/PostContainer';
@@ -14,23 +13,19 @@ class App extends Component {
 
   componentDidMount(){
     this.setState({
-      posts: dummyData,
+      postData: dummyData,
     })
   }
 
   render() {
     return (
-      <>
-      {
-      this.state.postData.map(post => <PostContainer postData={post} />)
-      }
+      <div>
       <SearchBarContainer />
-      </>
+      {
+      this.state.postData.map(post => <PostContainer key={post.imageUrl} postData={post} />)
+      }
+      </div>
     )}
-}
-
-App.propTypes = {
-  dummyData: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 }
 
 export default App;

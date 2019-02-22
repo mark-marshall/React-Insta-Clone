@@ -7,7 +7,7 @@ export default function CommentSection({ comments }) {
   return (
     <>
       {comments.map(comment => (
-        <Comment commentData={comment} />
+        <Comment key={comment.text} commentData={comment} />
       ))}
       <CommentInput />
     </>
