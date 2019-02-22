@@ -32,7 +32,7 @@ class App extends Component {
         if (this.state.postData.indexOf(post) === id) {
           post.comments = post.comments.concat({
             username: 'Jonathon',
-            text: this.state.commentInput,
+            text: this.state.commentInput
           });
           return post;
         } else {
@@ -44,6 +44,27 @@ class App extends Component {
     this.clearInputs();
   };
 
+  onSearchChange = e => {
+    this.setState({
+      enteredSearch: e.target.value
+    });
+  };
+
+  onSearchEnter = e => {
+    e.preventDefault();
+    if (this.state.enteredSearch) {
+      this.setState(prevState => ({
+        postData: prevState.postData.filter(
+          post => post.username === this.state.enteredSearch
+        )
+      }));
+    } else {
+      this.setState({
+        postData: dummyData
+      });
+    }
+  };
+
   clearInputs = () => {
     this.setState({
       commentInput: ''
@@ -53,7 +74,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SearchBarContainer />
+        <SearchBarContainer
+          enteredSearch={this.state.enteredSearch}
+          onSearchChange={this.onSearchChange}
+          onSearchEnter={this.onSearchEnter}
+        />
         {this.state.postData.map(post => (
           <PostContainer
             id={dummyData.indexOf(post)}

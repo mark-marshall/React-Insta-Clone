@@ -8,7 +8,6 @@ export default function CommentSection({
   id,
   selectedPost,
 }) {
-
   const whichInputIsBeingUsed = id === selectedPost ? commentInput : '';
 
   return (
