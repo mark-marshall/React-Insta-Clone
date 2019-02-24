@@ -1,15 +1,15 @@
 import React from 'react';
 
-export function authenticate(App, LoginPage) {
+export default function authenticate(App, LoginPage) {
   return class Authenticate extends React.Component {
     state = {
       username: '',
-      authed: false
+      authed: false,
     };
 
     userType = event => {
       this.setState({
-        username: event.target.value
+        username: event.target.value,
       });
     };
 
@@ -37,7 +37,7 @@ export function authenticate(App, LoginPage) {
           />
         );
       }
-      return <App {...this.props} />;
+      return <App {...this.props} username={this.state.username} authed={this.state.authed} />;
     }
   };
 }
