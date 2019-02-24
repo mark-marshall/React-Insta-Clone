@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+import instagramStyles from './Styles';
 import Authenticate from './Components/Authenticate/Authenticate';
 import LoginPage from './Components/Login/LoginPage';
 import dummyData from './dummy-data';
 import PostContainer from './Components/PostContainer/PostContainer';
 import SearchBarContainer from './Components/SearchBar/SearchBarContainer';
+
+const AppWrapper = styled.div`
+  width: ${instagramStyles.width.totalApp};
+  margin: ${instagramStyles.margin.default};
+`;
 
 class App extends Component {
   constructor(props) {
@@ -26,7 +33,7 @@ class App extends Component {
   onCommentChange = (e, id) => {
     this.setState({
       selectedPost: id,
-      commentInput: e.target.value
+      commentInput: e.target.value,
     });
   };
 
@@ -61,18 +68,18 @@ class App extends Component {
       this.setState(prevState => ({
         postData: prevState.postData.filter(
           post => post.username === this.state.enteredSearch
-        )
+        ),
       }));
     } else {
       this.setState({
-        postData: dummyData
+        postData: dummyData,
       });
     }
   };
 
   clearInputs = () => {
     this.setState({
-      commentInput: ''
+      commentInput: '',
     });
   };
 
@@ -91,7 +98,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <AppWrapper>
         <SearchBarContainer
           enteredSearch={this.state.enteredSearch}
           onSearchChange={this.onSearchChange}
@@ -109,7 +116,7 @@ class App extends Component {
             incrementLikes={this.incrementLikes}
           />
         ))}
-      </div>
+      </AppWrapper>
     );
   }
 }

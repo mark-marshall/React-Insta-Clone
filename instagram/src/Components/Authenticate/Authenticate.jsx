@@ -9,7 +9,7 @@ export default function authenticate(App, LoginPage) {
 
     userType = event => {
       this.setState({
-        username: event.target.value
+        username: event.target.value,
       });
     };
 
@@ -24,14 +24,6 @@ export default function authenticate(App, LoginPage) {
     componentDidMount() {
       const authed = !!localStorage.getItem('authed');
       this.setState({ authed });
-    }
-
-    componentDidUpdate() {
-        console.log('updated');
-        const authed = !!localStorage.getItem('authed');
-        if(this.state.authed !== authed){
-            this.setState({ authed })
-        }
     }
 
     render() {

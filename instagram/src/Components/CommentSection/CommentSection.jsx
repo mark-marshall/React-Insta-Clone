@@ -1,7 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+import instagramStyles from '../../Styles';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
 import CommentInput from './CommentInput';
+
+const TimeSince = styled.div`
+  font-size: ${instagramStyles.font.small};
+  color: ${instagramStyles.color.secondary};
+  padding-bottom: ${instagramStyles.padding.bottomStandard};
+  border-bottom: ${instagramStyles.borderBottom.standard};
+`;
 
 export default function CommentSection({
   comments,
@@ -10,6 +20,7 @@ export default function CommentSection({
   addNewComment,
   id,
   selectedPost,
+  postData,
 }) {
   return (
     <div>
@@ -17,11 +28,12 @@ export default function CommentSection({
         <Comment
           key={comment.text}
           commentData={comment}
-          coommentInput={commentInput}
+          commentInput={commentInput}
           onCommentChange={onCommentChange}
           addNewComment={addNewComment}
         />
       ))}
+      <TimeSince>{moment(postData.timestamp, 'MMMM Do YYYY, h:mm:ss a').fromNow()}</TimeSince>
       <CommentInput
         commentInput={commentInput}
         onCommentChange={onCommentChange}
@@ -40,4 +52,5 @@ CommentSection.propTypes = {
   addNewComment: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   selectedPost: PropTypes.number.isRequired,
+  postData: PropTypes.object.isRequired,
 };
